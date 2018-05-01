@@ -115,6 +115,17 @@ body {
   }
 }
 
+@keyframes moveInButton {
+  0% {
+    opacity: 0;
+    transform: translateY(30px)
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 
 .btn:link,
 .btn:visited {
@@ -124,35 +135,50 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all .2s;
+  position: relative;
 }
 
 .btn-white {
   background-color: white;
   color: #777;
   letter-spacing: 1px;
-  animation: moveUp 1s ease-out;
+}
+
+.btn-animated {
+  animation: moveInButton .5s ease-out .75s;
+  animation-fill-mode: backwards; /* applies keyframe animation at the start */
 }
 
 .btn:hover {
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   transform: translateY(-3px);
+
 }
 .btn:active {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);;
   transform: translateY(-1px);
 }
 
-
-@keyframes moveUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100px)
-  }
-  /* 80% {
-    transform: translateY(-10px);
-  } */
-  100% {
-    opacity: 1;
-    transform: translate(0);
-  }
+.btn::after { /* pseudo elems act like child elements*/
+  content: '';
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
 }
+
+.btn-white::after {
+  background-color: #ffffff;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+
