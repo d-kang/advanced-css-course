@@ -47,13 +47,15 @@ body {
   position: absolute;
   top: 50%; /* in relation to the parent element */
   left: 50%;
-  transform: translate(-40%, -40%) /* in relation to the element itself */
+  transform: translate(-40%, -40%); /* in relation to the element itself */
+  text-align: center;
 }
 
 .heading-primary {
   color: #ffffff;
   text-transform: uppercase;
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -81,17 +83,6 @@ body {
   letter-spacing: 17.4px;
   animation: moveInRight 1s ease-out;
 }
-
-.heading-primary-button {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 17px;
-  height: 50px;
-  width: 250px;
-  border-radius: 26px;
-  animation: moveUp 1s ease-out;
-}
-
 
 /* keyframe animations with opacity and transform */
 /* animation-name and animation-duration */
@@ -123,6 +114,34 @@ body {
     transform: translate(0);
   }
 }
+
+
+.btn:link,
+.btn:visited {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+}
+
+.btn-white {
+  background-color: white;
+  color: #777;
+  letter-spacing: 1px;
+  animation: moveUp 1s ease-out;
+}
+
+.btn:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+.btn:active {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);;
+  transform: translateY(-1px);
+}
+
 
 @keyframes moveUp {
   0% {
